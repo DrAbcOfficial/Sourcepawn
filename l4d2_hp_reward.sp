@@ -46,19 +46,19 @@ public Plugin myinfo = {
 public void OnPluginStart(){
 	CreateConVar("sm_hpr_version", PLUGIN_VERSION, "版本号", FCVAR_SPONLY|FCVAR_DONTRECORD);
 	//血量
-	hHRBoomer = CreateConVar("sm_hpr_multi_bommer", "1", "boomer的HP回复倍率");
-	hHRSpitter = CreateConVar("sm_hpr_multi_spitter", "1", "spitter的HP回复倍率");
-	hHRSmoker = CreateConVar("sm_hpr_multi_smoker", "1", "smoker的HP回复倍率");
-	hHRJockey = CreateConVar("sm_hpr_multi_jockey", "1", "jockey的HP回复倍率");
-	hHRHunter = CreateConVar("sm_hpr_multi_hunter", "1", "hunter的HP回复倍率");
-	hHRCharger = CreateConVar("sm_hpr_multi_charger", "1", "charger的HP回复倍率");
-	hHRWitch = CreateConVar("sm_hpr_multi_witch", "1", "witch的HP回复倍率");
-	hHRTank = CreateConVar("sm_hpr_multi_tank", "1", "tank的HP回复倍率");
-	hHRNotifications = CreateConVar("sm_hpr_notify", "1", "提示模式: 0=中心文字, 1=提示框");
-	hHRMax = CreateConVar("sm_hpr_max", "200", "最大血量");
-	hHRMinReward = CreateConVar("sm_hpr_min_reward", "5", "最低回复");
+	hHRBoomer = CreateConVar("sm_hpr_multi_bommer", "1", "boomer的HP回复倍率", FCVAR_NONE, true, 0.01);
+	hHRSpitter = CreateConVar("sm_hpr_multi_spitter", "1", "spitter的HP回复倍率", FCVAR_NONE, true, 0.01);
+	hHRSmoker = CreateConVar("sm_hpr_multi_smoker", "1", "smoker的HP回复倍率", FCVAR_NONE, true, 0.01);
+	hHRJockey = CreateConVar("sm_hpr_multi_jockey", "1", "jockey的HP回复倍率", FCVAR_NONE, true, 0.01);
+	hHRHunter = CreateConVar("sm_hpr_multi_hunter", "1", "hunter的HP回复倍率", FCVAR_NONE, true, 0.01);
+	hHRCharger = CreateConVar("sm_hpr_multi_charger", "1", "charger的HP回复倍率", FCVAR_NONE, true, 0.01);
+	hHRWitch = CreateConVar("sm_hpr_multi_witch", "1", "witch的HP回复倍率", FCVAR_NONE, true, 0.01);
+	hHRTank = CreateConVar("sm_hpr_multi_tank", "1", "tank的HP回复倍率", FCVAR_NONE, true, 0.01);
+	hHRNotifications = CreateConVar("sm_hpr_notify", "1", "提示模式: 0=中心文字, 1=提示框", FCVAR_NONE, true, 0.0, true, 1.0);
+	hHRMax = CreateConVar("sm_hpr_max", "200", "最大血量", FCVAR_NONE, true, 100.0);
+	hHRMinReward = CreateConVar("sm_hpr_min_reward", "5", "最低回复", FCVAR_NONE, true, 0.0);
 	//子弹
-	hAREnable = CreateConVar("sm_amr_allow_reward", "1", "允许子弹回复");
+	hAREnable = CreateConVar("sm_amr_allow_reward", "1", "允许子弹回复", FCVAR_NONE, true, 0.0, true, 1.0);
 
 	HookEvent("player_death", OnPlayerDeath);
 	HookEvent("witch_killed", OnWitchKilled);
